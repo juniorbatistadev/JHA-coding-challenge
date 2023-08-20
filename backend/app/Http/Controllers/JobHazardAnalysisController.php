@@ -1,11 +1,10 @@
 <?php
+namespace App\Http\Controllers;
 
-namespace App\Http\Controllers\Api\V1;
 
 use App\Models\JobHazardAnalysis;
 use App\Http\Requests\StoreJobHazardAnalysisRequest;
 use App\Http\Requests\UpdateJobHazardAnalysisRequest;
-use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\JobHazardAnalysisResource;
 use App\Http\Resources\V1\JobHazardAnalysisCollection;
 

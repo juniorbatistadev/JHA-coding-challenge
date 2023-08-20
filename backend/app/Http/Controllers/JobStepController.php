@@ -1,11 +1,9 @@
 <?php
-
-namespace App\Http\Controllers\Api\V1;
+namespace App\Http\Controllers;
 
 use App\Models\JobStep;
 use App\Http\Requests\StoreJobStepRequest;
 use App\Http\Requests\UpdateJobStepRequest;
-use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\JobStepResource;
 use App\Http\Resources\V1\JobStepCollection;
 

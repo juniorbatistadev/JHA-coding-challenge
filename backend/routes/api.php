@@ -2,8 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\V1\JobStepController;
-use App\Http\Controllers\Api\V1\JobHazardAnalysisController;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function(){
-    Route::apiResource('job-steps', App\Http\Controllers\Api\V1\JobStepController::class);
+Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers'], function(){
+    Route::apiResource('job-steps', JobStepController::class);
     Route::get('job-hazard-analyses/{jobHazardAnalysisId}/job-steps', 'JobStepController@byJobHazardAnalysis');
-    Route::apiResource('job-hazard-analyses', App\Http\Controllers\Api\V1\JobHazardAnalysisController::class);
+    Route::apiResource('job-hazard-analyses',JobHazardAnalysisController::class);
 });

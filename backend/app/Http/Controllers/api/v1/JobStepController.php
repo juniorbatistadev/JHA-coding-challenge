@@ -79,6 +79,7 @@ class JobStepController extends Controller
      */
     public function destroy(JobStep $jobStep)
     {
-        //
+        $jobStep->delete();
+        return response()->json(null, 204);
     }
 }

@@ -68,6 +68,7 @@ class JobHazardAnalysisController extends Controller
      */
     public function destroy(JobHazardAnalysis $jobHazardAnalysis)
     {
-        //
+        $jobHazardAnalysis->delete();
+        return response()->json(null, 204);
     }
 }

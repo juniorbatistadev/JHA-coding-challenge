@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function(){
-    Route::apiResource('job-steps', JobStepController::class);
+    Route::apiResource('job-steps', App\Http\Controllers\Api\V1\JobStepController::class);
     Route::get('job-hazard-analyses/{jobHazardAnalysisId}/job-steps', 'JobStepController@byJobHazardAnalysis');
-    Route::apiResource('job-hazard-analyses', JobHazardAnalysisController::class);
+    Route::apiResource('job-hazard-analyses', App\Http\Controllers\Api\V1\JobHazardAnalysisController::class);
 });

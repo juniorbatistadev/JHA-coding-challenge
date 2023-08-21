@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { JHA } from "../types/JHA.type";
 import CreateJHAButton from "../components/CreateJHAButton";
 import JobHazardAnalysisItem from "../components/JobHazardAnalysisItem";
+import AvatarChar from "../components/AvatarChar";
 
 function HomePage() {
   const [page, setPage] = useState(1);
@@ -30,10 +31,21 @@ function HomePage() {
   };
 
   return (
-    <div>
-      <h2>Welcome , {user?.name}</h2>
-      <h3>JHAs</h3>
-      <CreateJHAButton />
+    <div className="px-20 pt-10">
+      <div className="flex">
+        <h2 className="font-bold text-2xl text-slate-600">
+          Welcome, {user?.name}!
+        </h2>
+        <div className="ml-auto">
+          <AvatarChar />
+        </div>
+      </div>
+      <div className="flex items-center mt-10 mb-10">
+        <h3 className="font-bold text-slate-600">JHAs List</h3>
+        <div className="ml-auto">
+          <CreateJHAButton />
+        </div>
+      </div>
       {data.data?.map((jha: JHA) => (
         <JobHazardAnalysisItem key={jha.id} {...jha} />
       ))}

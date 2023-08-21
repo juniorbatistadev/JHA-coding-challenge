@@ -1,5 +1,4 @@
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { useContext } from "react";import { UserContext } from "../context/UserContext";
 import { useNavigate } from "react-router-dom";
 
 function LandingPage() {
@@ -14,7 +13,7 @@ function LandingPage() {
       name: formData.get("name") as string,
     });
 
-    navigate("/app");
+    navigate("/app/");
   };
 
   return (

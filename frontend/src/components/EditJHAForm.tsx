@@ -1,5 +1,4 @@
-import { JHA } from "../types/JHA.type";
-import { useState } from "react";
+import { JHA } from "../types/JHA.type";import { useState } from "react";
 
 export function EditJHAForm({
   jha,

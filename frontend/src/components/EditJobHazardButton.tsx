@@ -1,5 +1,4 @@
-import withReactContent from "sweetalert2-react-content";
-import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";import Swal from "sweetalert2";
 import { JHA } from "../types/JHA.type";
 import { useMutation, useQueryClient } from "react-query";
 import { EditJHAForm } from "./EditJHAForm";
@@ -45,7 +44,14 @@ function EditJobHazardButton(jha: JHA) {
       html: <EditJHAForm jha={jha} handleEdit={handleEdit} />,
     });
   };
-  return <button onClick={showEditPopUp}>Edit</button>;
+  return (
+    <button
+      onClick={showEditPopUp}
+      className="text-sm underline font-medium text-gray-800 "
+    >
+      Edit
+    </button>
+  );
 }
 
 export default EditJobHazardButton;

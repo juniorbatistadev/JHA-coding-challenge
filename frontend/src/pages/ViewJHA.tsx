@@ -2,6 +2,8 @@ import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
 import { JobStep } from "../types/JobStep.type";
 import CreateJobStepButtons from "../components/CreateJobStepButton";
+import JobStepItem from "../components/JobStepItem";
+
 function ViewJHA() {
   const { id } = useParams();
 
@@ -36,11 +38,7 @@ function ViewJHA() {
 
       <h2>Steps:</h2>
       {stepsData.data?.map((step: JobStep) => (
-        <div key={step.id}>
-          <p>{step.title}</p>
-          <p>{step.hazards}</p>
-          <p>{step.controls}</p>
-        </div>
+        <JobStepItem {...step} />
       ))}
     </div>
   );

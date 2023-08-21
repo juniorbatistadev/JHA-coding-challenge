@@ -6,6 +6,8 @@ import LandingPage from "./pages/LandingPage";
 import DashboardLayout from "./layout/DashboardLayout";
 import UserProvider from "./context/UserContext";
 import HomePage from "./pages/HomePage";
+import { QueryClient, QueryClientProvider } from "react-query";
+import ViewJHA from "./pages/ViewJHA";
 
 const router = createBrowserRouter([
   {
@@ -21,18 +23,21 @@ const router = createBrowserRouter([
         element: <HomePage />,
       },
       {
-        path: "settings",
-        element: <p>settigns</p>,
+        path: "jha/:id",
+        element: <ViewJHA />,
       },
     ],
   },
 ]);
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <UserProvider>
-      <RouterProvider router={router} />
-    </UserProvider>
-    s{" "}
+    <QueryClientProvider client={queryClient}>
+      <UserProvider>
+        <RouterProvider router={router} />
+      </UserProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );

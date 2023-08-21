@@ -1,5 +1,4 @@
-import { createContext, useState } from "react";
-type User = {
+import { createContext, useState } from "react";type User = {
   name: string;
 };
 
@@ -18,7 +17,9 @@ export default function UserProvider({
 }: {
   children: React.ReactNode;
 }) {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>({
+    name: "Guest",
+  });
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

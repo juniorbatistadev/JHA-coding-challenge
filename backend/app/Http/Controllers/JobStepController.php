@@ -23,7 +23,7 @@ class JobStepController extends Controller
 
     public function byJobHazardAnalysis($jobHazardAnalysisId)
     {
-        return new JobStepCollection(JobStep::where('job_hazard_analysis_id', $jobHazardAnalysisId)->paginate(10));
+        return new JobStepCollection(JobStep::where('job_hazard_analysis_id', $jobHazardAnalysisId)->orderBy('created_at', 'desc')->paginate(10));
     }
 
     /**

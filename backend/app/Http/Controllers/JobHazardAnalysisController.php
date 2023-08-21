@@ -18,7 +18,7 @@ class JobHazardAnalysisController extends Controller
     public function index()
     {
 
-        return new JobHazardAnalysisCollection(JobHazardAnalysis::paginate(10));
+        return new JobHazardAnalysisCollection(JobHazardAnalysis::orderBy('created_at', 'desc')->paginate(10));
     }
 
    

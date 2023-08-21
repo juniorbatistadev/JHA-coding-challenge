@@ -3,21 +3,27 @@ function Sidebar({ mobile, close }: { mobile?: boolean; close?: () => void }) {
   const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col w-full">
+    <div
+      className={
+        mobile
+          ? "h-full fixed top-0 left-0 bg-sky-800 w-1/2"
+          : "flex flex-col w-full"
+      }
+    >
+      {mobile && (
+        <p onClick={close} className="text-2xl m-3 text-white ">
+          X
+        </p>
+      )}
+
       <h2 className="font-bold text-xl text-white ml-10 mt-10">Acme Widgets</h2>
       <p className=" text-sm text-white ml-10 mb-10">
         Job Hazard Analysis Software
       </p>
-      <ul
-        className={
-          mobile
-            ? "h-full absolute top-0 left-0 bg-white"
-            : "h-full my-auto ml-10"
-        }
-      >
-        {mobile && <p onClick={close}>X</p>}
+      <ul className={" my-auto ml-10"}>
         <li className="font-bold text-white cursor-pointer  mb-4">
           <NavLink
+            onClick={close}
             to="/app/"
             className={({ isActive }) =>
               isActive ? "bg-sky-200 p-2 rounded text-sky-800" : "text-white"
@@ -28,22 +34,13 @@ function Sidebar({ mobile, close }: { mobile?: boolean; close?: () => void }) {
         </li>
         <li className="font-bold text-white cursor-pointer mb-4">
           <NavLink
+            onClick={close}
             to="/app/tech"
             className={({ isActive }) =>
               isActive ? "bg-sky-200 p-2 rounded text-sky-800" : "text-white"
             }
           >
             Tech Stack
-          </NavLink>
-        </li>
-        <li className="font-bold text-white cursor-pointer mb-4">
-          <NavLink
-            to="/app/tech"
-            className={({ isActive }) =>
-              isActive ? "bg-sky-200 p-2 rounded text-sky-800" : "text-white"
-            }
-          >
-            Stats
           </NavLink>
         </li>
       </ul>

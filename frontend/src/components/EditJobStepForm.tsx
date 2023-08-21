@@ -35,7 +35,7 @@ export function EditJobStepForm({
         name="title"
         id="title"
         placeholder="Job Hazard Analysis Title"
-        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-blue-500"
+        className="bg-gray-200 mb-5 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-blue-500"
       />
 
       <input
@@ -47,7 +47,7 @@ export function EditJobStepForm({
         name="hazards"
         id="hazards"
         placeholder="Hazards"
-        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-blue-500"
+        className="bg-gray-200 mb-5 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-blue-500"
       />
 
       <input
@@ -59,7 +59,7 @@ export function EditJobStepForm({
         name="controls"
         id="controls"
         placeholder="Controls"
-        className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-blue-500"
+        className="bg-gray-200 mb-5  appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-blue-500"
       />
 
       <input

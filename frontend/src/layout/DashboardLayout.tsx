@@ -1,9 +1,8 @@
 import { Outlet } from "react-router-dom";import Sidebar from "../components/Sidebar";
-import { UserContext } from "../context/UserContext";
-import { useContext, useState } from "react";
+import { useState } from "react";
+import AvatarChar from "../components/AvatarChar";
 
 export default function DashboardLayout() {
-  const { user } = useContext(UserContext);
   const [mobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
@@ -18,14 +17,14 @@ export default function DashboardLayout() {
         {mobileSidebarOpen && (
           <Sidebar mobile={true} close={() => setMobileSidebarOpen(false)} />
         )}
-        Acme Widgets
-        <p>{user?.name.charAt(0)}</p>
+        <p className="font-bold text-slate-700">Acme Widgets</p>
+        <AvatarChar />
       </nav>
       <div className="flex w-full h-full ">
         <div className="w-1/4 bg-sky-800 md:flex h-full hidden">
           <Sidebar />
         </div>
-        <main className="w-3/4 overflow-y-auto">
+        <main className="flex p-5 w-full md:w-3/4 overflow-y-auto  sm:px-20 sm:pt-10  bg-slate-300">
           <Outlet />
         </main>
       </div>

@@ -1,5 +1,4 @@
-import { useMutation, useQueryClient } from "react-query";
-import { JHA } from "../types/JHA.type";
+import { useMutation, useQueryClient } from "react-query";import { JHA } from "../types/JHA.type";
 import EditJobHazardButton from "./EditJobHazardButton";
 import { useNavigate } from "react-router-dom";
 
@@ -47,13 +46,16 @@ function JobHazardAnalysisItem(jha: JHA) {
       <p className="text-slate-400 text-sm">Author: {jha.author}</p>
 
       <div className="flex mt-5 ml-auto gap-3">
-        <button className="text-sm underline font-medium  text-gray-800 ">
+        <button
+          className="text-sm underline font-medium  text-gray-800 "
+          onClick={() => navigate("/app/jha/" + jha.id)}
+        >
           Show
         </button>
         <EditJobHazardButton {...jha} />
         <button
           onClick={handleDelete}
-          className="text-sm underline font-medium text-red-500 "
+          className="text-sm underline font-medium text-red-600 "
         >
           Delete
         </button>

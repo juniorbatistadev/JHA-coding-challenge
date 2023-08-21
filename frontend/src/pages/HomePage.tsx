@@ -18,8 +18,6 @@ function HomePage() {
       ).then((res) => res.json()),
   });
 
-  if (isLoading) return <p>Loading...</p>;
-
   if (error) return <p>Error :{JSON.stringify(error)}</p>;
 
   const nextPage = () => {
@@ -31,12 +29,12 @@ function HomePage() {
   };
 
   return (
-    <div className="px-20 pt-10">
-      <div className="flex">
+    <div className="flex flex-col w-full">
+      <div className="flex ">
         <h2 className="font-bold text-2xl text-slate-600">
           Welcome, {user?.name}!
         </h2>
-        <div className="ml-auto">
+        <div className="ml-auto hidden sm:flex">
           <AvatarChar />
         </div>
       </div>
@@ -46,13 +44,39 @@ function HomePage() {
           <CreateJHAButton />
         </div>
       </div>
-      {data.data?.map((jha: JHA) => (
-        <JobHazardAnalysisItem key={jha.id} {...jha} />
-      ))}
-      {data.meta?.current_page > 1 && <button onClick={prevPage}>Prev</button>}
-      {data.meta?.current_page} of {data.meta?.last_page}
-      {data.meta?.last_page > data.meta.current_page && (
-        <button onClick={nextPage}>Next</button>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          {data.data?.map((jha: JHA) => (
+            <JobHazardAnalysisItem key={jha.id} {...jha} />
+          ))}
+          <div className="flex items-center justify-between	mb-10">
+            <button
+              disabled={data.meta?.current_page === 1}
+              onClick={prevPage}
+              className={
+                data.meta?.current_page === 1
+                  ? "bg-gray-500  text-white font-bold py-2 px-4 rounded focus:outline-none mt-5"
+                  : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none mt-5 "
+              }
+            >
+              Prev
+            </button>
+            {data.meta?.current_page} of {data.meta?.last_page}
+            <button
+              disabled={data.meta?.current_page === data.meta?.last_page}
+              onClick={nextPage}
+              className={
+                data.meta?.current_page === data.meta?.last_page
+                  ? "bg-gray-500  text-white font-bold py-2 px-4 rounded focus:outline-none mt-5"
+                  : "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none mt-5 "
+              }
+            >
+              Next
+            </button>
+          </div>
+        </>
       )}
     </div>
   );

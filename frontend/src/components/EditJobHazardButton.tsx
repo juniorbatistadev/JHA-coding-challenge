@@ -1,4 +1,5 @@
-import withReactContent from "sweetalert2-react-content";import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import Swal from "sweetalert2";
 import { JHA } from "../types/JHA.type";
 import { useMutation, useQueryClient } from "react-query";
 import { EditJHAForm } from "./EditJHAForm";

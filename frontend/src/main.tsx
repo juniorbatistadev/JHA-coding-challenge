@@ -8,6 +8,7 @@ import UserProvider from "./context/UserContext";
 import HomePage from "./pages/HomePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import ViewJHA from "./pages/ViewJHA";
+import TechStack from "./pages/TechStack";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "jha/:id",
         element: <ViewJHA />,
+      },
+      {
+        path: "tech",
+        element: <TechStack />,
       },
     ],
   },

@@ -11,11 +11,16 @@ function TechStack() {  return (
       <p className="mb-5  text-slate-700">
         The frontend is built with <span className="font-bold"> React </span>{" "}
         and <span className="font-bold">Typescript</span> and{" "}
-        <span className="font-bold">TailwindCSS</span> for styling.
+        <span className="font-bold">TailwindCSS</span> for styling and
+        responsive design.
         <span className="font-bold"> React Query </span>
         is used for data fetching and state management.{" "}
         <span className="font-bold">React Router</span> is used for routing. The
         frontend is deployed to Vercel.
+      </p>
+      <p className="mb-5  text-slate-700">
+        The project include features such as pagination, responsive design, and
+        a few more.
       </p>
     </div>
   );
